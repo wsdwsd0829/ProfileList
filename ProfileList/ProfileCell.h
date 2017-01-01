@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ProfileCell.h
 //  ProfileList
 //
 //  Created by Sida Wang on 12/31/16.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController 
+extern NSString* const kProfileCellId;
 
-
+@interface ProfileCell : UITableViewCell
+@property (nonatomic) UILabel* nameLabel;
 @end
-
