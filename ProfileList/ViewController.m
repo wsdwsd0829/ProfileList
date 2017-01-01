@@ -9,52 +9,71 @@
 #import "ViewController.h"
 #import "ProfileCell.h"
 
-@interface ViewController () <UITableViewDataSource>
-@property (nonatomic) UITableView *tableView;
+@interface ViewController () <UICollectionViewDataSource>
+@property (nonatomic) UICollectionView *collectionView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //create & config
-    self.tableView = [self createTableView];
-    self.tableView.dataSource = self;
-    [self.tableView registerClass: [ProfileCell class]  forCellReuseIdentifier: kProfileCellId];
+    self.collectionView = [self createcollectionView];
+    self.collectionView.dataSource = self;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    [self.collectionView registerClass: [ProfileCell class]  forCellWithReuseIdentifier: kProfileCellId];
     //add to heirarchy and set constaints
     [self setupConstraints];
     
+   
+    
+    
+    self.viewModel = [[ProfilesViewModel alloc] init];
+    [self setupViewModel];
+    [self.viewModel loadProfiles];
     [self updateUI];
 }
--(void)updateUI {
-    [self.tableView reloadData];
+
+-(void)setupViewModel {
+    typeof(self) __weak weakSelf = self;
+    void(^updateBlock)() = ^() {
+        ViewController* strongSelf = weakSelf;
+        [strongSelf updateUI];
+    };
+    self.viewModel.updateBlock = updateBlock;
 }
 
--(UITableView*) createTableView{
-    UITableView* tableView = [[UITableView alloc] initWithFrame:CGRectZero style:
-                              UITableViewStylePlain];
-    tableView.backgroundColor = [UIColor greenColor];
-    return tableView;
+-(void)updateUI {
+    [self.collectionView reloadData];
+}
+
+-(UICollectionView*) createcollectionView{
+    UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:CGRectNull collectionViewLayout:flowLayout];
+    return collectionView;
 }
 
 //a flavor using native NSLayoutConstraints, other place use Masionary for simplicity
 -(void) setupConstraints {
-    [self.view addSubview: self.tableView];
-    [self.tableView setTranslatesAutoresizingMaskIntoConstraints: NO];
-    NSLayoutConstraint* top = [NSLayoutConstraint constraintWithItem: self.tableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:10];
-    NSLayoutConstraint* left = [NSLayoutConstraint constraintWithItem: self.tableView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-    NSLayoutConstraint* right = [NSLayoutConstraint constraintWithItem: self.tableView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
-    NSLayoutConstraint* bottom = [NSLayoutConstraint constraintWithItem: self.tableView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:-10];
+    [self.view addSubview: self.collectionView];
+    [self.collectionView setTranslatesAutoresizingMaskIntoConstraints: NO];
+    NSLayoutConstraint* top = [NSLayoutConstraint constraintWithItem: self.collectionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:10];
+    NSLayoutConstraint* left = [NSLayoutConstraint constraintWithItem: self.collectionView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+    NSLayoutConstraint* right = [NSLayoutConstraint constraintWithItem: self.collectionView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
+    NSLayoutConstraint* bottom = [NSLayoutConstraint constraintWithItem: self.collectionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:-10];
     [NSLayoutConstraint activateConstraints:@[top, left, right, bottom]];
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.viewModel.profiles.count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ProfileCell* cell = [tableView dequeueReusableCellWithIdentifier:kProfileCellId forIndexPath:indexPath];
-    cell.nameLabel.text = @"Testing";
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ProfileCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:kProfileCellId forIndexPath:indexPath];
+    cell.nameLabel.text = [self.viewModel fullNameForProfileAtIndex:indexPath.item];
+//    cell.bioLabel.text = [self.viewModel bioForProfileAtIndex:indexPath.item];
+//    cell.titleLabel.text = [self.viewModel titleForProfileAtIndex:indexPath.item];
     return cell;
 }
 

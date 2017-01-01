@@ -12,9 +12,10 @@
 NSString* const kProfileCellId = @"ProfileCell";
 
 @implementation ProfileCell
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if(self) {
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
         [self setupViews];
     }
     return self;
@@ -27,16 +28,10 @@ NSString* const kProfileCellId = @"ProfileCell";
     }
     return self;
 }
--(instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if(self) {
-        [self setupViews];
-
-    }
-    return self;
-}
 
 -(void)setupViews {
+    
+    //nameLabel
     UILabel* label = [[UILabel alloc] init];
     [label setTranslatesAutoresizingMaskIntoConstraints: NO];
     self.nameLabel = label;
@@ -49,7 +44,6 @@ NSString* const kProfileCellId = @"ProfileCell";
 }
 
 -(void)updateConstraints {
-    
     [super updateConstraints];
 }
 
@@ -57,11 +51,5 @@ NSString* const kProfileCellId = @"ProfileCell";
     [super layoutSubviews];
 }
 
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end

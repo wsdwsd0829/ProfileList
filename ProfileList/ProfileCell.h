@@ -10,6 +10,12 @@
 
 extern NSString* const kProfileCellId;
 
-@interface ProfileCell : UITableViewCell
+@interface ProfileCell : UICollectionViewCell
+//??? should this be weak like nibs, I think not needed;
 @property (nonatomic) UILabel* nameLabel;
+@property (nonatomic) UILabel* bioLabel;
+@property (nonatomic) UILabel* titleLabel;
+
+@property (nonatomic) UIImageView* imageView;
+
 @end

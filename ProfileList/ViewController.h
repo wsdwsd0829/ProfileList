@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProfilesViewModel.h"
 
 @interface ViewController : UIViewController 
-
+@property (nonatomic) ProfilesViewModel* viewModel;
 
 @end
 

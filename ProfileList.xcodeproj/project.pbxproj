@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D07BF1F1E18BECF00400F81 /* MessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07BF1D1E18BECF00400F81 /* MessageManager.m */; };
+		0D07BF2A1E18C01A00400F81 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07BF231E18C01A00400F81 /* Constants.m */; };
+		0D07BF2B1E18C01A00400F81 /* UIViewController+Navigations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07BF251E18C01A00400F81 /* UIViewController+Navigations.m */; };
+		0D07BF2C1E18C01A00400F81 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07BF271E18C01A00400F81 /* Utils.m */; };
+		0D07BF2D1E18C01A00400F81 /* Utils+DDHUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07BF291E18C01A00400F81 /* Utils+DDHUI.m */; };
+		0DE826CE1E18A3D800CA4116 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE826CD1E18A3D800CA4116 /* Profile.m */; };
+		0DE826D61E18A61F00CA4116 /* ProfilesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE826D51E18A61F00CA4116 /* ProfilesViewModel.m */; };
+		0DE826DB1E18A70C00CA4116 /* ApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE826D91E18A70C00CA4116 /* ApiClient.m */; };
+		0DE826DF1E18A71F00CA4116 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE826DD1E18A71F00CA4116 /* NetworkService.m */; };
+		0DE826E31E18A72D00CA4116 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE826E11E18A72D00CA4116 /* Reachability.m */; };
+		0DE826E71E18A73900CA4116 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE826E61E18A73900CA4116 /* Parser.m */; };
+		0DE826EB1E18A74600CA4116 /* CacheService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE826E91E18A74600CA4116 /* CacheService.m */; };
+		0DE826EE1E18A80E00CA4116 /* PersistService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE826ED1E18A80E00CA4116 /* PersistService.m */; };
 		0DEA38CD1E186E2400191B37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEA38CC1E186E2400191B37 /* main.m */; };
 		0DEA38D01E186E2400191B37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEA38CF1E186E2400191B37 /* AppDelegate.m */; };
 		0DEA38D31E186E2400191B37 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEA38D21E186E2400191B37 /* ViewController.m */; };
@@ -38,7 +51,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D07BF1C1E18BECF00400F81 /* MessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageManager.h; sourceTree = "<group>"; };
+		0D07BF1D1E18BECF00400F81 /* MessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageManager.m; sourceTree = "<group>"; };
+		0D07BF1E1E18BECF00400F81 /* MessageManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageManagerProtocol.h; sourceTree = "<group>"; };
+		0D07BF201E18BFDF00400F81 /* ProfileList-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProfileList-Prefix.pch"; sourceTree = "<group>"; };
+		0D07BF221E18C01A00400F81 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		0D07BF231E18C01A00400F81 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		0D07BF241E18C01A00400F81 /* UIViewController+Navigations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Navigations.h"; sourceTree = "<group>"; };
+		0D07BF251E18C01A00400F81 /* UIViewController+Navigations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Navigations.m"; sourceTree = "<group>"; };
+		0D07BF261E18C01A00400F81 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		0D07BF271E18C01A00400F81 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		0D07BF281E18C01A00400F81 /* Utils+DDHUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Utils+DDHUI.h"; sourceTree = "<group>"; };
+		0D07BF291E18C01A00400F81 /* Utils+DDHUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Utils+DDHUI.m"; sourceTree = "<group>"; };
+		0D07BF2E1E18C0BE00400F81 /* PersistServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistServiceProtocol.h; sourceTree = "<group>"; };
 		0D188D59A56657313296BEA9 /* Pods-ProfileList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProfileList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProfileList/Pods-ProfileList.debug.xcconfig"; sourceTree = "<group>"; };
+		0DE826CC1E18A3D800CA4116 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = Models/Profile.h; sourceTree = "<group>"; };
+		0DE826CD1E18A3D800CA4116 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = Models/Profile.m; sourceTree = "<group>"; };
+		0DE826D41E18A61F00CA4116 /* ProfilesViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfilesViewModel.h; path = ViewModel/ProfilesViewModel.h; sourceTree = "<group>"; };
+		0DE826D51E18A61F00CA4116 /* ProfilesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfilesViewModel.m; path = ViewModel/ProfilesViewModel.m; sourceTree = "<group>"; };
+		0DE826D81E18A70C00CA4116 /* ApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiClient.h; sourceTree = "<group>"; };
+		0DE826D91E18A70C00CA4116 /* ApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiClient.m; sourceTree = "<group>"; };
+		0DE826DA1E18A70C00CA4116 /* ApiClientProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiClientProtocol.h; sourceTree = "<group>"; };
+		0DE826DC1E18A71F00CA4116 /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
+		0DE826DD1E18A71F00CA4116 /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
+		0DE826DE1E18A71F00CA4116 /* NetworkServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkServiceProtocol.h; sourceTree = "<group>"; };
+		0DE826E01E18A72D00CA4116 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		0DE826E11E18A72D00CA4116 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		0DE826E21E18A72D00CA4116 /* ReachabilityServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityServiceProtocol.h; sourceTree = "<group>"; };
+		0DE826E41E18A73900CA4116 /* ParserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserProtocol.h; sourceTree = "<group>"; };
+		0DE826E51E18A73900CA4116 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		0DE826E61E18A73900CA4116 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		0DE826E81E18A74600CA4116 /* CacheService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheService.h; sourceTree = "<group>"; };
+		0DE826E91E18A74600CA4116 /* CacheService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheService.m; sourceTree = "<group>"; };
+		0DE826EA1E18A74600CA4116 /* CacheServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheServiceProtocol.h; sourceTree = "<group>"; };
+		0DE826EC1E18A80E00CA4116 /* PersistService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersistService.h; path = Services/PersistService.h; sourceTree = "<group>"; };
+		0DE826ED1E18A80E00CA4116 /* PersistService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersistService.m; path = Services/PersistService.m; sourceTree = "<group>"; };
 		0DEA38C81E186E2400191B37 /* ProfileList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DEA38CC1E186E2400191B37 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DEA38CE1E186E2400191B37 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +138,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D07BF211E18C00300400F81 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0D07BF221E18C01A00400F81 /* Constants.h */,
+				0D07BF231E18C01A00400F81 /* Constants.m */,
+				0D07BF241E18C01A00400F81 /* UIViewController+Navigations.h */,
+				0D07BF251E18C01A00400F81 /* UIViewController+Navigations.m */,
+				0D07BF261E18C01A00400F81 /* Utils.h */,
+				0D07BF271E18C01A00400F81 /* Utils.m */,
+				0D07BF281E18C01A00400F81 /* Utils+DDHUI.h */,
+				0D07BF291E18C01A00400F81 /* Utils+DDHUI.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		0DE826CB1E18A3C100CA4116 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0DE826CC1E18A3D800CA4116 /* Profile.h */,
+				0DE826CD1E18A3D800CA4116 /* Profile.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0DE826CF1E18A59200CA4116 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0DE826E81E18A74600CA4116 /* CacheService.h */,
+				0DE826E91E18A74600CA4116 /* CacheService.m */,
+				0DE826EA1E18A74600CA4116 /* CacheServiceProtocol.h */,
+				0DE826E41E18A73900CA4116 /* ParserProtocol.h */,
+				0DE826E51E18A73900CA4116 /* Parser.h */,
+				0DE826E61E18A73900CA4116 /* Parser.m */,
+				0DE826DC1E18A71F00CA4116 /* NetworkService.h */,
+				0DE826DD1E18A71F00CA4116 /* NetworkService.m */,
+				0DE826DE1E18A71F00CA4116 /* NetworkServiceProtocol.h */,
+				0DE826EC1E18A80E00CA4116 /* PersistService.h */,
+				0DE826ED1E18A80E00CA4116 /* PersistService.m */,
+				0D07BF2E1E18C0BE00400F81 /* PersistServiceProtocol.h */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		0DE826D01E18A59900CA4116 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0DE826D11E18A5A400CA4116 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0DE826D41E18A61F00CA4116 /* ProfilesViewModel.h */,
+				0DE826D51E18A61F00CA4116 /* ProfilesViewModel.m */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		0DE826D21E18A5B400CA4116 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0DEA39001E18881F00191B37 /* ProfileCell.h */,
+				0DEA39011E18881F00191B37 /* ProfileCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0DE826D71E18A6F500CA4116 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0D07BF1C1E18BECF00400F81 /* MessageManager.h */,
+				0D07BF1D1E18BECF00400F81 /* MessageManager.m */,
+				0D07BF1E1E18BECF00400F81 /* MessageManagerProtocol.h */,
+				0DE826E01E18A72D00CA4116 /* Reachability.h */,
+				0DE826E11E18A72D00CA4116 /* Reachability.m */,
+				0DE826E21E18A72D00CA4116 /* ReachabilityServiceProtocol.h */,
+				0DE826D81E18A70C00CA4116 /* ApiClient.h */,
+				0DE826D91E18A70C00CA4116 /* ApiClient.m */,
+				0DE826DA1E18A70C00CA4116 /* ApiClientProtocol.h */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		0DEA38BF1E186E2400191B37 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +247,13 @@
 		0DEA38CA1E186E2400191B37 /* ProfileList */ = {
 			isa = PBXGroup;
 			children = (
+				0D07BF211E18C00300400F81 /* Helpers */,
+				0DE826D71E18A6F500CA4116 /* Managers */,
+				0DE826D21E18A5B400CA4116 /* Views */,
+				0DE826D11E18A5A400CA4116 /* ViewModels */,
+				0DE826D01E18A59900CA4116 /* ViewControllers */,
+				0DE826CF1E18A59200CA4116 /* Services */,
+				0DE826CB1E18A3C100CA4116 /* Models */,
 				0DEA38CE1E186E2400191B37 /* AppDelegate.h */,
 				0DEA38CF1E186E2400191B37 /* AppDelegate.m */,
 				0DEA38D11E186E2400191B37 /* ViewController.h */,
@@ -124,8 +262,7 @@
 				0DEA38D91E186E2400191B37 /* LaunchScreen.storyboard */,
 				0DEA38DC1E186E2400191B37 /* Info.plist */,
 				0DEA38CB1E186E2400191B37 /* Supporting Files */,
-				0DEA39001E18881F00191B37 /* ProfileCell.h */,
-				0DEA39011E18881F00191B37 /* ProfileCell.m */,
+				0D07BF201E18BFDF00400F81 /* ProfileList-Prefix.pch */,
 			);
 			path = ProfileList;
 			sourceTree = "<group>";
@@ -414,10 +551,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DE826EB1E18A74600CA4116 /* CacheService.m in Sources */,
 				0DEA38D31E186E2400191B37 /* ViewController.m in Sources */,
+				0DE826CE1E18A3D800CA4116 /* Profile.m in Sources */,
+				0D07BF2C1E18C01A00400F81 /* Utils.m in Sources */,
 				0DEA39021E18881F00191B37 /* ProfileCell.m in Sources */,
+				0DE826EE1E18A80E00CA4116 /* PersistService.m in Sources */,
+				0D07BF1F1E18BECF00400F81 /* MessageManager.m in Sources */,
 				0DEA38D01E186E2400191B37 /* AppDelegate.m in Sources */,
+				0DE826D61E18A61F00CA4116 /* ProfilesViewModel.m in Sources */,
+				0D07BF2D1E18C01A00400F81 /* Utils+DDHUI.m in Sources */,
+				0DE826E71E18A73900CA4116 /* Parser.m in Sources */,
 				0DEA38CD1E186E2400191B37 /* main.m in Sources */,
+				0D07BF2A1E18C01A00400F81 /* Constants.m in Sources */,
+				0DE826DF1E18A71F00CA4116 /* NetworkService.m in Sources */,
+				0DE826E31E18A72D00CA4116 /* Reachability.m in Sources */,
+				0D07BF2B1E18C01A00400F81 /* UIViewController+Navigations.m in Sources */,
+				0DE826DB1E18A70C00CA4116 /* ApiClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +710,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9MKJC68VMT;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/ProfileList-Prefix.pch";
 				INFOPLIST_FILE = ProfileList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxsida.ProfileList;
@@ -574,6 +726,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9MKJC68VMT;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/ProfileList-Prefix.pch";
 				INFOPLIST_FILE = ProfileList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxsida.ProfileList;
