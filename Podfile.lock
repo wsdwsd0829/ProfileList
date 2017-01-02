@@ -19,19 +19,31 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SVProgressHUD (2.1.2)
+  - YBTopAlignedCollectionViewFlowLayout (0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Masonry
   - SDWebImage (~> 3.8)
   - SVProgressHUD (~> 2.0)
+  - YBTopAlignedCollectionViewFlowLayout (from `https://github.com/benski/TopAlignedCollectionViewLayout`)
+
+EXTERNAL SOURCES:
+  YBTopAlignedCollectionViewFlowLayout:
+    :git: https://github.com/benski/TopAlignedCollectionViewLayout
+
+CHECKOUT OPTIONS:
+  YBTopAlignedCollectionViewFlowLayout:
+    :commit: e90d5bd32bae6c4d037586dbdc3578039581ea47
+    :git: https://github.com/benski/TopAlignedCollectionViewLayout
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  YBTopAlignedCollectionViewFlowLayout: a9510017d2fb16de0c51666442b42ded313ed0f8
 
-PODFILE CHECKSUM: 0300221bb99e9ac4c896c565d79b058434141161
+PODFILE CHECKSUM: 02985650f870842a84112728e2a60f27cfcecfa4
 
 COCOAPODS: 1.1.1

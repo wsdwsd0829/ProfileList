@@ -17,11 +17,16 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     ViewController* vc = [[ViewController alloc] init];
     vc.view.backgroundColor = [UIColor blueColor];
+    UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:vc action:@selector(refreshClicked:)];
+    vc.navigationItem.rightBarButtonItems = @[item];
+    
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
-    self.window.rootViewController = vc;
+    self.window.rootViewController = nvc;
     [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;

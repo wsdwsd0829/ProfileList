@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ProfileCell.h"
+#import "YBTopAlignedCollectionViewFlowLayout.h"
 
 @interface ViewController () <UICollectionViewDataSource>
 @property (nonatomic) UICollectionView *collectionView;
@@ -20,14 +21,18 @@
     
     //create & config
     self.collectionView = [self createcollectionView];
-    self.collectionView.dataSource = self;
-    self.collectionView.backgroundColor = [UIColor whiteColor];
-    [self.collectionView registerClass: [ProfileCell class]  forCellWithReuseIdentifier: kProfileCellId];
     //add to heirarchy and set constaints
     [self setupConstraints];
     
-   
+    self.collectionView.dataSource = self;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    [self.collectionView registerClass: [ProfileCell class]  forCellWithReuseIdentifier: kProfileCellId];
+    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
+    //YBTopAlignedCollectionViewFlowLayout* layout = [[YBTopAlignedCollectionViewFlowLayout alloc] initWithNumColumns:2];
     
+    layout.estimatedItemSize = CGSizeMake(1 , 1);
+    //layout.itemSize = CGSizeMake(150, 150);
+    self.collectionView.collectionViewLayout = layout;
     
     self.viewModel = [[ProfilesViewModel alloc] init];
     [self setupViewModel];
@@ -42,6 +47,10 @@
         [strongSelf updateUI];
     };
     self.viewModel.updateBlock = updateBlock;
+}
+
+-(void) refreshClicked:(id) sender {
+    [self updateUI];
 }
 
 -(void)updateUI {
@@ -71,7 +80,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ProfileCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:kProfileCellId forIndexPath:indexPath];
-    cell.nameLabel.text = [self.viewModel fullNameForProfileAtIndex:indexPath.item];
+    cell.nameLabel.text =  [self.viewModel bioForProfileAtIndex:indexPath.item]; //@"cell.bioLabel.text = [self.viewModel bioFo rProfileAt Index: indexPath. i tem];";//
 //    cell.bioLabel.text = [self.viewModel bioForProfileAtIndex:indexPath.item];
 //    cell.titleLabel.text = [self.viewModel titleForProfileAtIndex:indexPath.item];
     return cell;

@@ -10,6 +10,7 @@ def shared_pods
 #    pod "SnapKit", '3.0.2'
 #    pod 'CocoaLumberjack', '~> 2.3'
 #    pod "MagicalRecord"
+    pod 'YBTopAlignedCollectionViewFlowLayout', :git => 'https://github.com/benski/TopAlignedCollectionViewLayout'  # UICollectionView cells with dynamic heights will be aligned at the top
 end
 
 target 'ProfileList' do

@@ -12,6 +12,13 @@
 		0D07BF2B1E18C01A00400F81 /* UIViewController+Navigations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07BF251E18C01A00400F81 /* UIViewController+Navigations.m */; };
 		0D07BF2C1E18C01A00400F81 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07BF271E18C01A00400F81 /* Utils.m */; };
 		0D07BF2D1E18C01A00400F81 /* Utils+DDHUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D07BF291E18C01A00400F81 /* Utils+DDHUI.m */; };
+		0DD6F36F1E1AE6700013444F /* ConstraintUtilities-Matching.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD6F36E1E1AE6700013444F /* ConstraintUtilities-Matching.m */; };
+		0DD6F3721E1AE6AE0013444F /* NSObject-Nametag.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD6F3711E1AE6AE0013444F /* NSObject-Nametag.m */; };
+		0DD6F3771E1AE6CC0013444F /* ConstraintUtilities-Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD6F3761E1AE6CC0013444F /* ConstraintUtilities-Layout.m */; };
+		0DD6F37A1E1AE6D40013444F /* ConstraintUtilities-Install.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD6F3791E1AE6D40013444F /* ConstraintUtilities-Install.m */; };
+		0DD6F37F1E1AE6DC0013444F /* ConstraintUtilities-Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD6F37C1E1AE6DC0013444F /* ConstraintUtilities-Description.m */; };
+		0DD6F3801E1AE6DC0013444F /* NSObject-Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD6F37E1E1AE6DC0013444F /* NSObject-Description.m */; };
+		0DD6F38A1E1AEFB20013444F /* UILabel+Convenient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD6F3891E1AEFB20013444F /* UILabel+Convenient.m */; };
 		0DE826CE1E18A3D800CA4116 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE826CD1E18A3D800CA4116 /* Profile.m */; };
 		0DE826D61E18A61F00CA4116 /* ProfilesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE826D51E18A61F00CA4116 /* ProfilesViewModel.m */; };
 		0DE826DB1E18A70C00CA4116 /* ApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE826D91E18A70C00CA4116 /* ApiClient.m */; };
@@ -65,6 +72,23 @@
 		0D07BF291E18C01A00400F81 /* Utils+DDHUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Utils+DDHUI.m"; sourceTree = "<group>"; };
 		0D07BF2E1E18C0BE00400F81 /* PersistServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistServiceProtocol.h; sourceTree = "<group>"; };
 		0D188D59A56657313296BEA9 /* Pods-ProfileList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProfileList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProfileList/Pods-ProfileList.debug.xcconfig"; sourceTree = "<group>"; };
+		0DD6F36D1E1AE6700013444F /* ConstraintUtilities-Matching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ConstraintUtilities-Matching.h"; sourceTree = "<group>"; };
+		0DD6F36E1E1AE6700013444F /* ConstraintUtilities-Matching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ConstraintUtilities-Matching.m"; sourceTree = "<group>"; };
+		0DD6F3701E1AE6AE0013444F /* NSObject-Nametag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject-Nametag.h"; sourceTree = "<group>"; };
+		0DD6F3711E1AE6AE0013444F /* NSObject-Nametag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject-Nametag.m"; sourceTree = "<group>"; };
+		0DD6F3731E1AE6BE0013444F /* Constraints-CreationMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Constraints-CreationMacros.h"; sourceTree = "<group>"; };
+		0DD6F3741E1AE6BE0013444F /* Constraints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constraints.h; sourceTree = "<group>"; };
+		0DD6F3751E1AE6CC0013444F /* ConstraintUtilities-Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ConstraintUtilities-Layout.h"; sourceTree = "<group>"; };
+		0DD6F3761E1AE6CC0013444F /* ConstraintUtilities-Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ConstraintUtilities-Layout.m"; sourceTree = "<group>"; };
+		0DD6F3781E1AE6D40013444F /* ConstraintUtilities-Install.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ConstraintUtilities-Install.h"; sourceTree = "<group>"; };
+		0DD6F3791E1AE6D40013444F /* ConstraintUtilities-Install.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ConstraintUtilities-Install.m"; sourceTree = "<group>"; };
+		0DD6F37B1E1AE6DC0013444F /* ConstraintUtilities-Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ConstraintUtilities-Description.h"; sourceTree = "<group>"; };
+		0DD6F37C1E1AE6DC0013444F /* ConstraintUtilities-Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ConstraintUtilities-Description.m"; sourceTree = "<group>"; };
+		0DD6F37D1E1AE6DC0013444F /* NSObject-Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject-Description.h"; sourceTree = "<group>"; };
+		0DD6F37E1E1AE6DC0013444F /* NSObject-Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject-Description.m"; sourceTree = "<group>"; };
+		0DD6F3811E1AE6F90013444F /* Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		0DD6F3881E1AEFB20013444F /* UILabel+Convenient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+Convenient.h"; path = "Helpers/UILabel+Convenient.h"; sourceTree = "<group>"; };
+		0DD6F3891E1AEFB20013444F /* UILabel+Convenient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Convenient.m"; path = "Helpers/UILabel+Convenient.m"; sourceTree = "<group>"; };
 		0DE826CC1E18A3D800CA4116 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = Models/Profile.h; sourceTree = "<group>"; };
 		0DE826CD1E18A3D800CA4116 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = Models/Profile.m; sourceTree = "<group>"; };
 		0DE826D41E18A61F00CA4116 /* ProfilesViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfilesViewModel.h; path = ViewModel/ProfilesViewModel.h; sourceTree = "<group>"; };
@@ -141,6 +165,21 @@
 		0D07BF211E18C00300400F81 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0DD6F3811E1AE6F90013444F /* Utility.h */,
+				0DD6F37B1E1AE6DC0013444F /* ConstraintUtilities-Description.h */,
+				0DD6F37C1E1AE6DC0013444F /* ConstraintUtilities-Description.m */,
+				0DD6F37D1E1AE6DC0013444F /* NSObject-Description.h */,
+				0DD6F37E1E1AE6DC0013444F /* NSObject-Description.m */,
+				0DD6F3781E1AE6D40013444F /* ConstraintUtilities-Install.h */,
+				0DD6F3791E1AE6D40013444F /* ConstraintUtilities-Install.m */,
+				0DD6F3751E1AE6CC0013444F /* ConstraintUtilities-Layout.h */,
+				0DD6F3761E1AE6CC0013444F /* ConstraintUtilities-Layout.m */,
+				0DD6F3731E1AE6BE0013444F /* Constraints-CreationMacros.h */,
+				0DD6F3741E1AE6BE0013444F /* Constraints.h */,
+				0DD6F3701E1AE6AE0013444F /* NSObject-Nametag.h */,
+				0DD6F3711E1AE6AE0013444F /* NSObject-Nametag.m */,
+				0DD6F36D1E1AE6700013444F /* ConstraintUtilities-Matching.h */,
+				0DD6F36E1E1AE6700013444F /* ConstraintUtilities-Matching.m */,
 				0D07BF221E18C01A00400F81 /* Constants.h */,
 				0D07BF231E18C01A00400F81 /* Constants.m */,
 				0D07BF241E18C01A00400F81 /* UIViewController+Navigations.h */,
@@ -149,6 +188,8 @@
 				0D07BF271E18C01A00400F81 /* Utils.m */,
 				0D07BF281E18C01A00400F81 /* Utils+DDHUI.h */,
 				0D07BF291E18C01A00400F81 /* Utils+DDHUI.m */,
+				0DD6F3881E1AEFB20013444F /* UILabel+Convenient.h */,
+				0DD6F3891E1AEFB20013444F /* UILabel+Convenient.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -552,7 +593,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DE826EB1E18A74600CA4116 /* CacheService.m in Sources */,
+				0DD6F3721E1AE6AE0013444F /* NSObject-Nametag.m in Sources */,
+				0DD6F3801E1AE6DC0013444F /* NSObject-Description.m in Sources */,
 				0DEA38D31E186E2400191B37 /* ViewController.m in Sources */,
+				0DD6F36F1E1AE6700013444F /* ConstraintUtilities-Matching.m in Sources */,
 				0DE826CE1E18A3D800CA4116 /* Profile.m in Sources */,
 				0D07BF2C1E18C01A00400F81 /* Utils.m in Sources */,
 				0DEA39021E18881F00191B37 /* ProfileCell.m in Sources */,
@@ -560,11 +604,15 @@
 				0D07BF1F1E18BECF00400F81 /* MessageManager.m in Sources */,
 				0DEA38D01E186E2400191B37 /* AppDelegate.m in Sources */,
 				0DE826D61E18A61F00CA4116 /* ProfilesViewModel.m in Sources */,
+				0DD6F3771E1AE6CC0013444F /* ConstraintUtilities-Layout.m in Sources */,
 				0D07BF2D1E18C01A00400F81 /* Utils+DDHUI.m in Sources */,
 				0DE826E71E18A73900CA4116 /* Parser.m in Sources */,
+				0DD6F37F1E1AE6DC0013444F /* ConstraintUtilities-Description.m in Sources */,
 				0DEA38CD1E186E2400191B37 /* main.m in Sources */,
+				0DD6F38A1E1AEFB20013444F /* UILabel+Convenient.m in Sources */,
 				0D07BF2A1E18C01A00400F81 /* Constants.m in Sources */,
 				0DE826DF1E18A71F00CA4116 /* NetworkService.m in Sources */,
+				0DD6F37A1E1AE6D40013444F /* ConstraintUtilities-Install.m in Sources */,
 				0DE826E31E18A72D00CA4116 /* Reachability.m in Sources */,
 				0D07BF2B1E18C01A00400F81 /* UIViewController+Navigations.m in Sources */,
 				0DE826DB1E18A70C00CA4116 /* ApiClient.m in Sources */,
@@ -713,6 +761,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/ProfileList-Prefix.pch";
 				INFOPLIST_FILE = ProfileList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxsida.ProfileList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -729,6 +778,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/ProfileList-Prefix.pch";
 				INFOPLIST_FILE = ProfileList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxsida.ProfileList;
 				PRODUCT_NAME = "$(TARGET_NAME)";

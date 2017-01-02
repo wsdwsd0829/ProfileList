@@ -9,6 +9,7 @@
 #import "UIViewController+Navigations.h"
 
 @implementation UIViewController (Navigations)
+
 - (BOOL)isModal {
     if([self presentingViewController])
         return YES;
