@@ -34,12 +34,12 @@
                         NSString* firstName = itemDict[@"firstName"];
                         NSString* lastName = itemDict[@"lastName"];
                         NSString* title = itemDict[@"title"];
-
+                        
                         if(identifier && firstName && lastName && title) {
 
                             Profile* result = [[Profile alloc] initWithId:identifier withFirstName:firstName withLastName:lastName withTitle:title];
                             result.bio = [itemDict objectForKey:@"bio"];
-                            
+                            result.avatar = [itemDict objectForKey:@"avatar"];
                             [results addObject:result];
                         }
                     }

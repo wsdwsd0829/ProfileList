@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ProfileCell.h"
 #import "YBTopAlignedCollectionViewFlowLayout.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ViewController () <UICollectionViewDataSource>
 @property (nonatomic) UICollectionView *collectionView;
@@ -25,13 +26,13 @@
     [self setupConstraints];
     
     self.collectionView.dataSource = self;
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor clearColor];
     [self.collectionView registerClass: [ProfileCell class]  forCellWithReuseIdentifier: kProfileCellId];
     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
     //YBTopAlignedCollectionViewFlowLayout* layout = [[YBTopAlignedCollectionViewFlowLayout alloc] initWithNumColumns:2];
     
-    layout.estimatedItemSize = CGSizeMake(1 , 1);
-    //layout.itemSize = CGSizeMake(150, 150);
+    //layout.estimatedItemSize = CGSizeMake(1 , 1);
+    layout.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width-40)/2, ([UIScreen mainScreen].bounds.size.width-40)/2 + 20 + 40);
     self.collectionView.collectionViewLayout = layout;
     
     self.viewModel = [[ProfilesViewModel alloc] init];
@@ -80,9 +81,9 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ProfileCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:kProfileCellId forIndexPath:indexPath];
-    cell.nameLabel.text =  [self.viewModel bioForProfileAtIndex:indexPath.item]; //@"cell.bioLabel.text = [self.viewModel bioFo rProfileAt Index: indexPath. i tem];";//
-//    cell.bioLabel.text = [self.viewModel bioForProfileAtIndex:indexPath.item];
-//    cell.titleLabel.text = [self.viewModel titleForProfileAtIndex:indexPath.item];
+    cell.nameLabel.text = [self.viewModel fullNameForProfileAtIndex:indexPath.item];
+    cell.titleLabel.text = [self.viewModel titleForProfileAtIndex:indexPath.item];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:  self.viewModel.profiles[indexPath.item].avatar] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     return cell;
 }
 

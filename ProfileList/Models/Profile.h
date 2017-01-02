@@ -18,5 +18,6 @@
 @property (nonatomic, readonly, copy) NSString* title;
 
 @property  (nonatomic, copy) NSString* bio;
+@property  (nonatomic, copy) NSString* avatar;
 
 @end

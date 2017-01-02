@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     ViewController* vc = [[ViewController alloc] init];
-    vc.view.backgroundColor = [UIColor blueColor];
+    vc.view.backgroundColor = [UIColor grayColor];
     UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:vc action:@selector(refreshClicked:)];
     vc.navigationItem.rightBarButtonItems = @[item];

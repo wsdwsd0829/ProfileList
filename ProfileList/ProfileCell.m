@@ -56,8 +56,8 @@ NSString* const kProfileCellId = @"ProfileCell";
     UIImage* image = [UIImage imageNamed:@"person-placeholder"];
     UIImageView* imageView = [[UIImageView alloc] initWithImage: image];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
-    
     self.imageView = imageView;
+    self.imageView.bounds = CGRectInset(self.imageView.frame, 10, 10);
     [self setupConstraints];
     /*
     [self.nameLabel setTranslatesAutoresizingMaskIntoConstraints: NO];
@@ -71,61 +71,46 @@ NSString* const kProfileCellId = @"ProfileCell";
     */
 }
 -(void) setupConstraints {
-    [self.contentView addSubview: self.nameLabel];
     [self.contentView addSubview: self.imageView];
-//    [self.contentView addSubview: self.bioLabel];
-//    [self.contentView addSubview: self.titleLabel];
-//
-   
+    [self.contentView addSubview: self.titleLabel];
+    [self.contentView addSubview: self.nameLabel];
+    
+    float labeloffset = 0;
+    float imgOffset = 10;
+    UIEdgeInsets imagePadding = UIEdgeInsetsMake(imgOffset, imgOffset, -imgOffset, -imgOffset);
+    UIEdgeInsets labelPadding = UIEdgeInsetsMake(0, labeloffset, 0, -labeloffset);
+    
     [self.imageView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top);
-        make.left.equalTo(self.contentView.mas_left);
-        make.right.equalTo(self.contentView.mas_right);
+        make.top.equalTo(self.contentView.mas_top).offset(8);
+        make.left.equalTo(self.contentView.mas_left).offset(8);
+        make.right.equalTo(self.contentView.mas_right).offset(-8);
+        make.bottom.equalTo(self.titleLabel.mas_top).offset(-8);
+
         //make.bottom.equalTo(self.contentView.mas_bottom);
-        make.height.equalTo(self.contentView.mas_width);
+        make.height.equalTo(self.imageView.mas_width);
     }];
     
-//    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.and.right.equalTo(self.contentView);
-//        make.top.equalTo(self.imageView).with.offset(8);
-//    }];
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.equalTo(self.contentView).with.insets(labelPadding);
+        make.top.equalTo(self.imageView.mas_bottom).offset(8);
+    }];
+    
     [self.nameLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.equalTo(self.contentView);
-        make.top.equalTo(self.imageView.mas_bottom).with.priority(1000);//.with.offset(8);
+        make.top.equalTo(self.titleLabel.mas_bottom);//.with.offset(8);
         make.bottom.equalTo(self.contentView.mas_bottom);
     }];
-//    [self.bioLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.and.bottom.equalTo(self.contentView);
-//        make.top.equalTo(self.nameLabel).with.offset(8);
-//    }];
-//
-    
-//    UIEdgeInsets padding = UIEdgeInsetsMake(0, 0, 0, 0);
-//    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.contentView).with.insets(padding);
-//    }];
-    
-    
 }
 
 
 -(void)updateConstraints {
-//    for (UIView *view in self.contentView.subviews)
-//    {
-//        NSArray *constraints = [self.contentView constraintsReferencingView:view];
-//        for (NSLayoutConstraint *constraint in constraints)
-//            [constraint remove];
-//    }
-    for(id constraint in self.contentView.constraints) {
-//        if([constraint isKindOfClass: [NSAutoresizingMaskLayoutConstraint class]]) {
-//            
-//        }
-    }
     [super updateConstraints];
 }
 
 -(void)layoutSubviews {
     [super layoutSubviews];
+    self.imageView.layer.cornerRadius = self.imageView.bounds.size.width / 2;
+    self.imageView.clipsToBounds = YES;
 }
 
 -(void)prepareForReuse {
@@ -146,7 +131,7 @@ NSString* const kProfileCellId = @"ProfileCell";
     //self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
 
     CGSize aSize = layoutAttributes.size;
-    aSize.width = ([UIScreen mainScreen].bounds.size.width-40)/2;
+    aSize.width = ([UIScreen mainScreen].bounds.size.width-30)/2;
 
     for(NSLayoutConstraint* constraint in self.constraints) {
         if(constraint.firstAttribute == NSLayoutAttributeWidth) {
