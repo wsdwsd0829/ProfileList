@@ -8,12 +8,10 @@
 
 #import "ProfilesViewModel.h"
 #import "NetworkService.h"
-#import "MessageManager.h"
 #import "PersistService.h"
 
 @interface ProfilesViewModel () {
     id<NetworkServiceProtocol> networkService;
-    id<MessageManagerProtocol> messageManager;
     id<PersistServiceProtocol> persistService;
 }
 @end
@@ -27,9 +25,8 @@
         
         //setup services
         networkService = [[NetworkService alloc] init];
-        messageManager = [[MessageManager alloc] init];  //TODO: ? sharedMessageManager
+      
         persistService = [[PersistService alloc] init];
-        self.cacheService = [[CacheService alloc] init];
     }
     return self;
 }
@@ -37,7 +34,7 @@
 -(void) loadProfiles {
     [persistService loadDataWithHandler:^(id profs, NSError *error) {
         if(error) {
-            [self p_handleError:error];
+            NSLog(@"Error Loading Profiles");
         } else {
             if(![profs isKindOfClass: [NSArray class]]) {
                 [[NSException exceptionWithName:@"Logic Error" reason:@"expect array of profiles from persistService" userInfo:nil] raise];
@@ -73,7 +70,21 @@
     }
 }
 
--(void) p_handleError:(NSError*)error {
-    [messageManager showError:error];
+-(Profile*)previousProfileFor:(Profile *)profile {
+    NSInteger index = [self.profiles indexOfObject: profile];
+    if(index == 0) {
+        return nil;
+    }
+    return self.profiles[index - 1];
 }
+
+-(Profile*)nextProfileFor:(Profile *)profile {
+    NSInteger index = [self.profiles indexOfObject: profile];
+    if(index == self.profiles.count-1) {
+        return nil;
+    }
+    return self.profiles[index + 1];
+}
+
+
 @end

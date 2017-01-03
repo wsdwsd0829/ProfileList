@@ -8,14 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Profile.h"
-#import "CacheService.h"
 
 typedef void(^updateUI)();
 @interface ProfilesViewModel : NSObject
 
 @property (nonatomic, copy) NSArray<Profile *>* profiles;
 
-@property id<CacheServiceProtocol> cacheService;
 @property (nonatomic, copy) updateUI updateBlock;
 
 -(void) loadProfiles;
@@ -23,5 +21,9 @@ typedef void(^updateUI)();
 -(NSString*) fullNameForProfileAtIndex:(NSInteger)index;
 -(NSString*) titleForProfileAtIndex:(NSInteger) index;
 -(NSString*) bioForProfileAtIndex:(NSInteger) index;
+
+
+-(Profile*)previousProfileFor:(Profile *)profile;
+-(Profile*)nextProfileFor:(Profile *)profile;
 
 @end

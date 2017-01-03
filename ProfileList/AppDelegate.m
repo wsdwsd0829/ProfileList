@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 @interface AppDelegate () {
-    
 }
 
 @end
@@ -21,6 +20,7 @@
     ViewController* vc = [[ViewController alloc] init];
     vc.view.backgroundColor = [UIColor grayColor];
     UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    vc.navigationItem.title = @"Profiles";
     UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:vc action:@selector(refreshClicked:)];
     vc.navigationItem.rightBarButtonItems = @[item];
     

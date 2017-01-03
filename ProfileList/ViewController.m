@@ -10,8 +10,12 @@
 #import "ProfileCell.h"
 #import "YBTopAlignedCollectionViewFlowLayout.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "PageViewController.h"
+#import "DetailViewController.h"
+#import "OpenPageAnimator.h"
+#import "PageViewController.h"
 
-@interface ViewController () <UICollectionViewDataSource>
+@interface ViewController () <UICollectionViewDataSource,UICollectionViewDelegate, UINavigationControllerDelegate>
 @property (nonatomic) UICollectionView *collectionView;
 @end
 
@@ -19,26 +23,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
+
     //create & config
-    self.collectionView = [self createcollectionView];
+    [self setupViews];
     //add to heirarchy and set constaints
     [self setupConstraints];
-    
-    self.collectionView.dataSource = self;
-    self.collectionView.backgroundColor = [UIColor clearColor];
-    [self.collectionView registerClass: [ProfileCell class]  forCellWithReuseIdentifier: kProfileCellId];
-    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
-    //YBTopAlignedCollectionViewFlowLayout* layout = [[YBTopAlignedCollectionViewFlowLayout alloc] initWithNumColumns:2];
-    
-    //layout.estimatedItemSize = CGSizeMake(1 , 1);
-    layout.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width-40)/2, ([UIScreen mainScreen].bounds.size.width-40)/2 + 20 + 40);
-    self.collectionView.collectionViewLayout = layout;
-    
+    //models
     self.viewModel = [[ProfilesViewModel alloc] init];
     [self setupViewModel];
     [self.viewModel loadProfiles];
     [self updateUI];
+}
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+    self.navigationController.delegate = self;
+}
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+-(void)viewDidLayoutSubviews {
+    
+    [super viewDidLayoutSubviews];
 }
 
 -(void)setupViewModel {
@@ -51,17 +58,25 @@
 }
 
 -(void) refreshClicked:(id) sender {
-    [self updateUI];
+    [self.viewModel loadProfiles];
 }
 
 -(void)updateUI {
     [self.collectionView reloadData];
 }
 
--(UICollectionView*) createcollectionView{
-    UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:CGRectNull collectionViewLayout:flowLayout];
-    return collectionView;
+-(void) setupViews {
+    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
+    //YBTopAlignedCollectionViewFlowLayout* layout = [[YBTopAlignedCollectionViewFlowLayout alloc] initWithNumColumns:2];
+    
+    //layout.estimatedItemSize = CGSizeMake(1 , 1);
+    layout.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width-40)/2, ([UIScreen mainScreen].bounds.size.width-40)/2 + 20 + 40);
+    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:CGRectNull collectionViewLayout:layout];
+    self.collectionView = collectionView;
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    [self.collectionView registerClass: [ProfileCell class]  forCellWithReuseIdentifier: kProfileCellId];
 }
 
 //a flavor using native NSLayoutConstraints, other place use Masionary for simplicity
@@ -87,9 +102,36 @@
     return cell;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    PageViewController* pvc = [[PageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    [self setupPageViewController:pvc withIndexPath: indexPath];
+    [self.navigationController pushViewController:pvc animated:YES];
+}
+
+-(void)setupPageViewController: (PageViewController*) pvc withIndexPath:(NSIndexPath*)indexPath{
+    pvc.dataSource = pvc;  //pvc's navigation controller not set yet!
+    pvc.viewModel = self.viewModel;
+    pvc.edgesForExtendedLayout = UIRectEdgeNone;
+    DetailViewController* dvc = [pvc createDetailPage];
+    dvc.profile = self.viewModel.profiles[indexPath.item];
+    pvc.navigationItem.title = @"Profile Detail";
+
+    [pvc setViewControllers:@[dvc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    //get offset from screen frame
+    UICollectionViewLayoutAttributes *attributes = [self.collectionView layoutAttributesForItemAtIndexPath:indexPath];
+    CGRect cellRect = attributes.frame;
+    CGRect cellFrameInSuperview = [self.collectionView convertRect:cellRect toView:[self.collectionView superview]];
+    pvc.fromFrame = cellFrameInSuperview;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+    if([toVC isKindOfClass: [PageViewController class]]) {
+    OpenPageAnimator* opa = [[OpenPageAnimator alloc] init];
+    opa.delegate = ((PageViewController*)toVC);
+    opa.presenting = YES;
+       return opa;
+    }
+    return nil;
 }
 
 @end

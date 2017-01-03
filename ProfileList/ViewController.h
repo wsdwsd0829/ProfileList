@@ -11,6 +11,5 @@
 
 @interface ViewController : UIViewController 
 @property (nonatomic) ProfilesViewModel* viewModel;
-
 @end
 

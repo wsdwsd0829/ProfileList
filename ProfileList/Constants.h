@@ -5,9 +5,6 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef NS_ENUM(NSUInteger, ImageListType) {
-    ImageListTypeRecent, ImageListTypeInteresting
-};
 
 @interface Constants : NSObject
 
