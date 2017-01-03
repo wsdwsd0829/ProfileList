@@ -76,6 +76,7 @@
 -(void)headerViewDidShowOnScreenWithOffset:(CGFloat)offset inScrollView:(UIScrollView *)scrollView{
     [self setNavigationItemTitle];
 }
+
 -(void) setNavigationItemTitle {
     CGFloat offset = [self.scrollView headerImageOffset];
     if(offset > -150) {

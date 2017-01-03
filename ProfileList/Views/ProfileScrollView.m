@@ -19,10 +19,10 @@ CGFloat kMaxInsetY = 150;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        //self.isHeightCalculated = NO;
         self.backgroundColor = [UIColor grayColor];
         self.delegate = self;
         [self setupViews];
+        [self setupConstraints];
     }
     return self;
 }
@@ -41,14 +41,12 @@ CGFloat kMaxInsetY = 150;
     //bioLabel
     UILabel* bioLabel = [UILabel labelWithMultiline];
     self.bioLabel = bioLabel;
-
     //image
     UIImage* image = [UIImage imageNamed:@"person-placeholder"];
     UIImageView* imageView = [[UIImageView alloc] initWithImage: image];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView = imageView;
-    
-    [self setupConstraints];
+
 }
 
 -(void) setupConstraints {
@@ -91,33 +89,6 @@ CGFloat kMaxInsetY = 150;
     
 }
 
--(CGFloat)headerImageOffset {
-    return [self convertRect:self.imageView.frame toView:self.superview].origin.y;
-}
-
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    //self.contentInset = UIEdgeInsetsMake(-self.contentOffset.y, 0, 0, 0);
-    if(self.contentOffset.y >= 0 && self.contentOffset.y < kMaxInsetY) {
-        //self.contentInset = UIEdgeInsetsMake(self.contentOffset.y, 0, 0, 0);
-        [self.imageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.contentView.mas_top).offset(8 + self.contentOffset.y);
-            make.height.equalTo([NSNumber numberWithFloat: (kProfileImageHeight - self.contentOffset.y)]);
-        }];
-    }
-    
-    NSLog(@"frameY: %f", [self convertRect:self.imageView.frame toView:self.superview].origin.y);
-    CGFloat offsetY = [self headerImageOffset];
-    if(offsetY < 0) {
-        [self.profileScrollViewDelegate headerViewDidOffScreenWithOffset: offsetY inScrollView:self];
-    } else {
-        [self.profileScrollViewDelegate headerViewDidShowOnScreenWithOffset: offsetY inScrollView:self];
-    }
-//
-//    NSLog(@"offset: %f", self.contentOffset.y);
-//    NSLog(@"inset: %f", self.contentInset.top);
-//    NSLog(@"height: %f", self.contentSize.height);
-}
-
 -(void)updateConstraints {
     [super updateConstraints];
 }
@@ -134,6 +105,33 @@ CGFloat kMaxInsetY = 150;
         }
     }
     self.imageView.clipsToBounds = YES;
+}
+
+//MARK: ScrollView delegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    //self.contentInset = UIEdgeInsetsMake(-self.contentOffset.y, 0, 0, 0);
+    if(self.contentOffset.y >= 0 && self.contentOffset.y < kMaxInsetY) {
+        //self.contentInset = UIEdgeInsetsMake(self.contentOffset.y, 0, 0, 0);
+        [self.imageView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.contentView.mas_top).offset(8 + self.contentOffset.y);
+            make.height.equalTo([NSNumber numberWithFloat: (kProfileImageHeight - self.contentOffset.y)]);
+        }];
+    }
+    
+    CGFloat offsetY = [self headerImageOffset];
+    if(offsetY < 0) {
+        [self.profileScrollViewDelegate headerViewDidOffScreenWithOffset: offsetY inScrollView:self];
+    } else {
+        [self.profileScrollViewDelegate headerViewDidShowOnScreenWithOffset: offsetY inScrollView:self];
+    }
+    //
+    //    NSLog(@"offset: %f", self.contentOffset.y);
+    //    NSLog(@"inset: %f", self.contentInset.top);
+    //    NSLog(@"height: %f", self.contentSize.height);
+}
+
+-(CGFloat)headerImageOffset {
+    return [self convertRect:self.imageView.frame toView:self.superview].origin.y;
 }
 
 +(BOOL) requiresConstraintBasedLayout

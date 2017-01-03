@@ -2,6 +2,7 @@
 a. file names & category method need abbrev like: CMB  (coffet meet bagel)
 b. some metric number can be extract to const on top of header or to Constants.h for easy config. 
 c. Constant string can be make constant and localized. 
+d. File can put in corresponding folders and map to groupd in Xcode. 
 
 2. Features impleted:
 a. collection profiles. circled;
@@ -19,3 +20,4 @@ a. open animator add presentation controller, or key frame animation.
 b. better using autolayout for use views. 
 c. cell and detail view share some common fetures an extrature to protocol ProfileViewProtocol and default super implementation
 d. better drag header control
+e. refactor drag header to reusable

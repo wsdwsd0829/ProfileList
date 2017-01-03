@@ -88,6 +88,7 @@
     [NSLayoutConstraint activateConstraints:@[top, left, right, bottom]];
 }
 
+//MARK: collection view datasource
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.viewModel.profiles.count;
 }
@@ -100,6 +101,7 @@
     return cell;
 }
 
+//MARK: collection view delegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     PageViewController* pvc = [[PageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     [self setupPageViewController:pvc withIndexPath: indexPath];
