@@ -23,8 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-
     //create & config
     [self setupViews];
     //add to heirarchy and set constaints
@@ -35,10 +33,12 @@
     [self.viewModel loadProfiles];
     [self updateUI];
 }
+
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
-    self.navigationController.delegate = self;
+    self.navigationController.delegate = self; //not set in viewdidload
 }
+
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
@@ -67,10 +67,8 @@
 
 -(void) setupViews {
     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
-    //YBTopAlignedCollectionViewFlowLayout* layout = [[YBTopAlignedCollectionViewFlowLayout alloc] initWithNumColumns:2];
-    
-    //layout.estimatedItemSize = CGSizeMake(1 , 1);
-    layout.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width-40)/2, ([UIScreen mainScreen].bounds.size.width-40)/2 + 20 + 40);
+    //can use collectionViewLayoutdelegate to calculate more acurate size
+    layout.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width-40)/2, ([UIScreen mainScreen].bounds.size.width-40)/2 + 60);
     UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:CGRectNull collectionViewLayout:layout];
     self.collectionView = collectionView;
     self.collectionView.dataSource = self;

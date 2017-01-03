@@ -112,10 +112,10 @@ CGFloat kMaxInsetY = 150;
     } else {
         [self.profileScrollViewDelegate headerViewDidShowOnScreenWithOffset: offsetY inScrollView:self];
     }
-
-    NSLog(@"offset: %f", self.contentOffset.y);
-    NSLog(@"inset: %f", self.contentInset.top);
-    NSLog(@"height: %f", self.contentSize.height);
+//
+//    NSLog(@"offset: %f", self.contentOffset.y);
+//    NSLog(@"inset: %f", self.contentInset.top);
+//    NSLog(@"height: %f", self.contentSize.height);
 }
 
 -(void)updateConstraints {

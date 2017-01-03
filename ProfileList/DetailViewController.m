@@ -68,6 +68,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver: self];
 }
 
+
 #pragma mark - ProfileScrollViewDelegate 
 -(void)headerViewDidOffScreenWithOffset:(CGFloat)offset inScrollView:(UIScrollView *)scrollView {
     [self setNavigationItemTitle];

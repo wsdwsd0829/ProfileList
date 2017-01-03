@@ -53,6 +53,7 @@ NSString* const kProfileCellId = @"ProfileCell";
     self.imageView = imageView;
     [self setupConstraints];
 }
+
 -(void) setupConstraints {
     [self.contentView addSubview: self.imageView];
     [self.contentView addSubview: self.titleLabel];
@@ -89,8 +90,7 @@ NSString* const kProfileCellId = @"ProfileCell";
 
 -(void)layoutSubviews {
     [super layoutSubviews];
-    NSLog(@"%f, %f", self.imageView.bounds.size.width, self.imageView.bounds.size.height);
-    self.imageView.layer.cornerRadius = self.imageView.bounds.size.width / 2;
+    self.imageView.layer.cornerRadius = (self.contentView.bounds.size.width-16) / 2;
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.borderWidth = 3.0f;
     self.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
