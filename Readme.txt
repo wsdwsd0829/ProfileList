@@ -21,3 +21,4 @@ b. better using autolayout for use views.
 c. cell and detail view share some common fetures an extrature to protocol ProfileViewProtocol and default super implementation
 d. better drag header control
 e. refactor drag header to reusable
+ii
